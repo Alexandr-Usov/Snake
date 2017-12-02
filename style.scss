@@ -1,0 +1,174 @@
+@mixin block_shadow {
+    box-shadow: 0 14px 28px rgba(0, 0, 0, 0.25), 0 10px 10px rgba(0, 0, 0, 0.22);
+ }
+@mixin block_border {
+    border: 2px solid #000;
+ }
+
+@mixin block_background {
+    background-color: #fff;
+ }
+
+@mixin block_margin {
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+@mixin block-absolute__wrapper {
+  position: absolute;
+  z-index: 100;
+  margin: auto;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  width: 20%;
+  height: 15%;
+}
+
+@mixin padding_horizontal {
+  $padding: 10px;
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: darkgreen url("IMG/background-WB.jpg") repeat;
+  flex-direction: column;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+}
+
+.screen-box {
+  width: 1700px;
+  height: 800px;
+  display: flex;
+  justify-content: center;
+  background-color: white;
+  align-content: center;
+  flex-direction: column;
+  @include block_shadow;
+  @include block_border;
+}
+canvas {
+  width: 100%;
+  height: 100%;
+
+}
+
+.game {
+  &-panel {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;
+    @include block_margin;
+  }
+
+  &-header {
+    @include block_background;
+    @include block_border;
+    @include block_shadow;
+    @include padding_horizontal;
+    font-size: 30px;
+    font-family: 'Rock Salt', cursive;
+  }
+
+  &-stats {
+    @include block_background;
+    @include block_border;
+    @include block_shadow;
+    @include padding_horizontal;
+    height: 73px;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+  }
+
+  &-notice {
+    @include block_background;
+    @include block_border;
+    @include block_shadow;
+    @include padding_horizontal;
+    display: flex;
+    align-items: center;
+    @include block_margin;
+
+    &__arrow-img {
+      margin-left: 10px;
+      &_direct {
+        &_left {
+          transform: rotate(-90deg);
+        }
+        &_right {
+          transform: rotate(90deg);
+        }
+
+        &_down {
+          transform: rotate(180deg);
+        }
+      }
+    }
+  }
+}
+
+ .modal-window {
+   @include block-absolute__wrapper;
+   @include block_border;
+   @include block_shadow;
+   @include block_background;
+   text-align: center;
+   visibility: hidden;
+   width: 400px;
+   height: 180px;
+
+
+   &__header {
+     font-weight: bold;
+     font-size: 25px;
+     margin: 20px 0 15px 0;
+   }
+
+   &__text {
+     margin: 15px 0 20px 0;
+   }
+
+   &__button {
+     @include block_border;
+     @include block_background;
+     @include padding_horizontal;
+     font-size: 18px;
+     padding-top: 10px;
+     padding-bottom: 10px;
+     transition: background .5s;
+
+     &:hover {
+       box-shadow: 0px 3px 3px 0px rgba(0,0,0,0.14), 0px 1px 7px 0px rgba(0,0,0,0.12), 0px 3px 1px -1px rgba(0,0,0,0.2);
+     }
+
+     &:active {
+       background: #dddddd;
+       box-shadow: none;
+     }
+   }
+ }
+
+.game-over__header {
+    color: #780900;
+  }
+
+.game-start__header {
+  margin-bottom: 20px;
+}
+
+
+
+

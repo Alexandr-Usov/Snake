@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Snake</title>
+  <link href="https://fonts.googleapis.com/css?family=Rock+Salt" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="game-panel">
+  <h2 class="game-header">Snake</h2>
+  <p class="game-stats">
+    Очки: <span id="score" class="game-score">0</span>
+  </p>
+</div>
+<div class="screen-box">
+  <canvas id="gP">HTML5 не поддерживается</canvas>
+</div>
+<p class="game-notice">Управление:
+  <img class="game-notice__arrow-img game-notice__arrow-img_direct_left" src="IMG/arrow-key.png" width="30"
+       height="30"> -
+  влево,
+  <img class="game-notice__arrow-img game-notice__arrow-img_direct_right" src="IMG/arrow-key.png" width="30"
+       height="30"> - вправо,
+  <img class="game-notice__arrow-img" src="IMG/arrow-key.png" width="30" height="30">
+  - вверх,
+  <img class="game-notice__arrow-img game-notice__arrow-img_direct_down" src="IMG/arrow-key.png" width="30" height="30">
+  - вниз
+</p>
+
+<div id="gameOver" class="modal-window game-over">
+  <p class="modal-window__header game-over__header">Игра окончена!</p>
+  <p class="modal-window__text">Вы набрали<span id="game-over__score"></span>очков.</p>
+  <button id="gameOverButton" class="modal-window__button">Играть ещё!</button>
+</div>
+
+<div id="gameStart" class="modal-window game-over">
+  <p class="modal-window__header game-start__header">Собери самую большую змейку.</p>
+  <button id="gameStarButton" class="modal-window__button">Начать игру!</button>
+</div>
+
+<script src="snake.js"></script>
+</body>
+</html>
